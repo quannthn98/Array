@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hien thi</title>
+</head>
+<body>
+<script>
+  let i = 0;
+  let newArr = [];
+  let phanTu="";
+  let color = ["red", "green","white","black"];
+  for (;i<color.length;i++){
+    if (i==3){
+      phanTu += color[i];
+    }else {
+      phanTu += color[i] + ',';
+    }
+  }
+  newArr[0] = phanTu;
+  console.log(newArr)
+</script>
+</body>
+</html>

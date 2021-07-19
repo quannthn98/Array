@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bai 6</title>
+</head>
+<body>
+<input type="number" id="prediction">
+<button type="button" onclick="check()">Check</button>
+<script>
+  let min = parseInt(prompt('Nhap vao min'));
+  let max = parseInt(prompt('Nhap vao max'));
+  let prediction;
+  let range = []
+  let i = 0;
+  let flag = false;
+  let j = 0;
+  for (;i<10;i++){
+    range[i] = Math.floor(Math.random()*max + min);
+  }
+  console.log(range)
+  range.sort(function (a,b){
+    return a - b;
+  })
+  console.log(range)
+
+
+
+
+
+
+</script>
+</body>
+</html>

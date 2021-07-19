@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h3>Caro Game Simple</h3>
+<p id="carogame" />
+<input type="button" value="Change Value" onclick="changeValue()">
+<script>
+  let b = document.getElementById("carogame");
+
+  let board = [];
+  let data = "";
+  for (let i = 0; i < 3; i++) {
+    board[i] = new Array(".", ".", ".");
+  }
+
+  for (let i = 0; i < 3; i++) {
+    data += "<br/>";
+    for (let j = 0; j < 3; j++) {
+      data += board[i][j] + "&nbsp;&nbsp;";
+    }
+  }
+
+  data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+  b.innerHTML = data;
+  isPlayer1Turn = true;
+  let player1 = [];
+  let player2 = [];
+  let turn = 0;
+  function changeValue() {
+
+    let positionX = prompt("X: ");
+    let positionY = prompt("Y: ");
+    for (let j = 0; j < player1.length; j++){
+      if (positionX+positionY+"" == player1[j] || positionX+positionY+""== player2[j]){
+        alert('please input again');
+        changeValue();
+      }
+    }
+    data = "";
+    if (isPlayer1Turn) {
+      board[positionX][positionY] = "x";
+      player1.push(positionX + positionY);
+      isPlayer1Turn = false;
+    } else {
+      board[positionX][positionY] = "o";
+      player2.push(positionX+positionY);
+      isPlayer1Turn = true;
+    }
+    for (let i = 0; i < 3; i++) {
+      data += "<br/>";
+      for (let j = 0; j < 3; j++) {
+        data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+      }
+    }
+    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+    b.innerHTML = "<hr/>" + data;
+    turn ++;
+
+    if (turn >4) {
+      check()
+    }
+
+
+  }
+  function check(){
+    let winPosibility = ["000102","101112","202122","001020","011121","021222","001122","021120"]
+    for (let i = 0; i<winPosibility.length; i++){
+        if (player1.join('') === winPosibility[i]){
+            alert('x is the winner');
+            break;
+    } else if (player2.join('') === winPosibility[i]){
+            alert('o ix the winner');
+            break;
+        } else if (turn == 9){
+            alert('game over. No winner');
+            break;
+        }
+    }
+  }
+
+</script>
+</body>
+</html>

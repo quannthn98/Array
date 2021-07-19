@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic tac toe advance</title>
+  <style>
+    td{
+      width: 26px;
+      height: 26px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+<script>
+  let row = 10;
+  let col = 10;
+  let i = 0;
+  let j = 0;
+  let hienthi = "";
+  let isPicked = false;
+  let isP1turn = true;
+  let xMove = [];
+  let xMoveInCol = [];
+  let xMoveInRow = [];
+  let oMove = [];
+  let oMoveInCol = [];
+  let oMoveInRow = [];
+  let xMovei;
+  let xMovej;
+
+  drawTable()
+  function drawTable(){
+
+    hienthi = "<table border='1' style='collapse: collapsed'>";
+    for (i = 0; i < row;i++){
+      hienthi += "<tr>";
+      for (j = 0; j<col;j++){
+        hienthi += "<td onclick='changeValue(" + i +','+ j +")' id='" +''+i+j+ "'>";
+      }
+      hienthi+= "</tr>";
+    }
+    hienthi += "</table>"
+    document.write(hienthi);
+    console.log(hienthi);
+  }
+  //Thay doi gia tri cua Ô đã chọn
+  function changeValue(x,y){
+
+      checkDuplicate();
+      if (isPicked){
+          isPicked = false;
+      } else {
+          if (isP1turn) {
+              document.getElementById("" + x + y).innerHTML = "x";
+              xMove.push(x,y);
+              isP1turn = false;
+
+              sortX();
+
+          } else {
+              document.getElementById("" + x + y).innerHTML = "o";
+              oMove.push(x,y);
+              isP1turn = true;
+              sortO();
+          }
+          check();
+      }
+      //Kiem tra xem ô đã check hay chưa
+      function checkDuplicate(){
+          if (document.getElementById("" + x + y).innerHTML == "x" || document.getElementById("" + x + y).innerHTML == "o"){
+              isPicked = true;
+          } else {
+              isPicked = false;
+          }
+      }
+  }
+  function sortX(){
+      xMoveInCol = xMove.sort(function(a,b){
+          return a[1] - b[1];
+      })
+      xMoveInRow = xMoveInCol.sort(function (a,b){
+          return a[0] - b[0];
+      })
+  }
+  function sortO(){
+      oMoveInCol = oMove.sort(function (a,b){
+          return a[1] - b[1];
+      })
+      oMoveInRow = oMove.sort(function (a,b){
+          return a[0] - b[0];
+      })
+  }
+  function check(){
+      for (let i = 0;i<row;i++){
+          for (let j = 0; j<col;j++) {
+              if (document.getElementById("" + i + j).innerHTML == "x" && document.getElementById("" + i + (j + 1)).innerHTML == "x" && document.getElementById("" + i + (j + 2)).innerHTML == "x") {
+                  alert('X is winner');
+              } else if (document.getElementById("" + i + j).innerHTML == "x" && document.getElementById("" + (i+1) + j).innerHTML == "x" && document.getElementById("" + (i + 2) + j).innerHTML == "x") {
+                    alert('x win');
+              } else if (document.getElementById("" + i + j).innerHTML == "x" && document.getElementById("" + (i+1) + (j+1)).innerHTML == "x" && document.getElementById("" + (i + 2) + (j+2)).innerHTML == "x"){
+                  alert('x win')
+              }
+          }
+      }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="dulieu">Nhập vào từ bạn muốn dịch</label>
+<input type="text" id="dulieu">
+<button onclick="check()"> Dịch</button>
+<div id="addition"></div>
+<script>
+  let english = ["apple", "dog", "cat", "house", "computer", "table"]
+  let vietnameses = ["quả táo", "con chó", "con mèo", "ngôi nhà", "máy tính", "cái bàn"]
+
+  function check(){
+    let word = document.getElementById("dulieu").value.toLowerCase();
+    let i = 0;
+
+    flag = false;
+    for (;i<english.length;i++) {
+      if (english[i] === word) {
+        flag = true;
+        alert(vietnameses[i])
+        break;
+      } else {
+        flag = false;
+      }
+    }
+      if (!flag) {
+        r = confirm('Từ điển chưa có từ đó, bạn có muốn thêm vào không?')
+        if (r==true){
+          hienthi();
+        } else {
+          alert('Cám ơn bạn đã quan tâm')
+        }
+      }
+    }
+
+
+    function hienthi(){
+    document.getElementById("addition").innerHTML = "<br>" +
+            "<label for='english'> nhập vào từ tiếng anh của bạn </label>" +
+            "<input type='text' id = 'english'>" +" <br>" +
+            "<label for='tiengviet'> nhập vào nghĩa</label>" +
+            "<input type='text' id='tiengviet'>" + "<br>" +
+            "<button onclick = 'add()' > Add</button> "
+    }
+  function add(){
+
+    newEng = document.getElementById('english').value.toLowerCase();
+    newViet = document.getElementById('tiengviet').value.toLowerCase();
+    english.push(newEng);
+    vietnameses.push(newViet);
+    alert('đã thêm thành công, cám ơn bạn đã đóng góp')
+    document.getElementById("addition").innerHTML = "";
+    console.log(english);
+    console.log(vietnameses);
+  }
+
+</script>
+</body>
+
+</html>

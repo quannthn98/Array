@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Nhập vào cái gì đó đi</h1>
+<textarea readonly id="fake" cols="30" rows="10" onkeydown="show()"></textarea>
+<script>
+  let word = "ANH YÊU EM"
+  let count = 0;
+  function show(){
+      if (count<10) {
+          document.getElementById("fake").value += word[count];
+          count++;
+      } else {
+
+          document.getElementById("fake").value=""
+          count = 0;
+      }
+  }
+</script>
+</body>
+</html>

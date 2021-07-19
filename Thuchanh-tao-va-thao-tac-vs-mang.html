@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" id="phantu">
+<button onclick="add()"> Add</button>
+<button onclick="show()"> Display</button>
+<hr>
+<p id="hienthi"></p>
+
+<script>
+let element = [];
+let i = 0
+let x = 0;
+let e;
+function add(){
+    element[x] = document.getElementById("phantu").value;
+    x++;
+}
+function show(){
+    e = ""
+   for (i = 0;i<element.length;i++){
+       e += "element " + i + " = " + element[i] + "<br>";
+   }
+   document.getElementById("hienthi").innerHTML = e;
+}
+</script>
+</body>
+</html>

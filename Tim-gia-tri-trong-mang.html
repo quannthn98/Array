@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị trong mảng</title>
+</head>
+<body>
+<input type="number" id="so">
+<button onclick="check()"> Kiem tra </button>
+<script>
+  function check() {
+    let yourNum = document.getElementById("so").value
+    let numbers = [3, 5, 1, 7, 8, 10, 4, 2, 6]
+    let i = 0;
+    let flag = false;
+    for (; i < numbers.length; i++) {
+      if (numbers[i] == yourNum) {
+        flag = true;
+        break;
+      } else {
+        flag = false;
+      }
+    }
+    if (flag) {
+      alert('So ban nhap nam vi tri ' + i + ' trong mang')
+    } else {
+      alert('so ban nhap khong co trong mang')
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+<script>
+  let i = 0;
+  let j = 0;
+  let a = [
+    [1, 2, 1, 24],
+    [8, 11, 9, 4],
+    [7, 0, 7, 27],
+    [7, 4, 28, 14],
+    [3, 10, 26, 7]
+  ];
+  let hienthi = "";
+  for (i = 0; i<a.length;i++){
+    hienthi += "<p>" + "row" + i + "</p>" +"<br>";
+    for (j = 0;j < a[i].length;j++){
+      hienthi +="<p>" + a[i][j] + "</p>" + "<br>";
+    }
+
+  }
+  document.write(hienthi);
+</script>
+</body>
+</html>

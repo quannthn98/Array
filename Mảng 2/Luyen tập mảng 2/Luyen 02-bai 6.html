@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 6</title>
+</head>
+<body>
+<script>
+  let word = [
+          [1,3,4,"-",4,3,"-",4,7,9,"-"],
+          [2,"-",4,"-",7,"-",9]
+  ]
+  for (let i = 0 ; i<word.length;i++){
+    for (let j = 0; j<word[i].length;j++){
+      if (word[i][j] == "-"){
+        word[i][j] = "_";
+      }
+    }
+  }
+</script>
+</body>
+</html>

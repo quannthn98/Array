@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let string = prompt('Nhap vao chuoi');
+    let newArr = [];
+    let i = 0;
+    for (;i<string.length;i++){
+        if (string[i] == string[i].toLowerCase()){
+            newArr.push(string[i].toUpperCase())
+        } else {
+            newArr.push(string[i].toLowerCase())
+        }
+    }
+    console.log(newArr.join(''))
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<label for="from">Translate from</label>
+<select name="input" id="from">
+
+  <option value=eng>English</option>
+  <option value=vie>Vietnamese</option>
+  <option value=fre>French</option>
+</select>
+
+<br>
+<label for="dulieu">Your word</label>
+<input type="text" id="dulieu">
+<br>
+<label for="to">Translate to</label>
+<select name="input" id="to">
+  <option value=eng>English</option>
+  <option value=vie>Vietnamese</option>
+  <option value=fre>French</option>
+</select>
+
+<button onclick="check(document.getElementById('from').value, document.getElementById('to').value)"> Translate</button>
+<div id="addition"></div>
+
+<script>
+
+           ];
+  let eng = ["apple", "dog", "cat", "house", "computer", "table"];
+  let vie = ["quả táo", "con chó", "con mèo", "ngôi nhà", "máy tính", "cái bàn"];
+  let fre = ["pomme","chienne ","chatte","loger","l'ordinateur","tableau"]
+
+  // function check(a,b){
+  //
+  //   console.log(a[1]);
+  //   console.log(b[1]);
+  // }
+  function check(a,b){
+    let word = document.getElementById("dulieu").value;
+    for (let i = 0; i < book[a].length; i++){
+      if (word== book[a][i]){
+            flag = true;
+            alert(book[b][i]);
+            break;
+      } else {
+            flag = false;
+      }
+    }
+
+    if (!flag){
+      alert('Ko co tu nay');
+    }
+
+  }
+
+
+
+
+</script>
+</body>
+
+</html>
